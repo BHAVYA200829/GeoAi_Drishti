@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+venv/
+.env
+*.log
+.pytest_cache/
+
+# training artifacts
+out/
+data/
+*.safetensors

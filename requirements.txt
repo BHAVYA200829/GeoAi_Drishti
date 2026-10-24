@@ -1,0 +1,27 @@
+# Drishti requirements
+
+# --- API layer ---
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+
+# --- data layer ---
+requests>=2.32
+
+# --- timezone data (required on Windows; bundled on Linux/macOS) ---
+tzdata>=2024.1
+
+# --- SLM layer (only needed when DRISHTI_ENABLE_SLM=1) ---
+torch>=2.2
+transformers>=4.44
+accelerate>=0.33
+sentencepiece>=0.2
+huggingface_hub>=0.24
+
+# Optional: CPU-fast inference via GGUF quantised models
+# llama-cpp-python>=0.2.90
+
+# Optional: schema-constrained JSON decoding for reliable slot output
+# outlines>=0.0.46
+
+# training the adapter is optional and lives in training/requirements-train.txt

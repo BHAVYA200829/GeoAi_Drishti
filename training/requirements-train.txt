@@ -1,0 +1,10 @@
+# training only -- the running assistant needs none of this
+torch>=2.2
+transformers>=4.44
+peft>=0.12
+bitsandbytes>=0.43
+datasets>=2.20
+accelerate>=0.33
+trl>=0.9
+huggingface_hub>=0.24
+sentencepiece

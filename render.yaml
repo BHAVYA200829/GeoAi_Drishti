@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: drishti
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DRISHTI_ENABLE_SLM
+        value: "0"                 # set "1" only if the host has RAM for the model
+      - key: DRISHTI_MODEL_ID
+        value: Qwen/Qwen2.5-1.5B-Instruct
+      - key: DRISHTI_CACHE_TTL
+        value: "3600"
+      - key: DRISHTI_HTTP_TIMEOUT
+        value: "25"
+      - key: DRISHTI_HTTP_RETRIES
+        value: "1"
+      - key: DRISHTI_DEFAULT_RADIUS_KM
+        value: "5"
+      # Optional official overlays - add these as secret env vars in the dashboard,
+      # never commit real values.
+      # - key: WAQI_TOKEN
+      #   sync: false
+      # - key: IMD_API_KEY
+      #   sync: false
+      # - key: IMD_JWT
+      #   sync: false
